@@ -4,9 +4,9 @@ namespace Thrifty.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public string Index()
+        public ActionResult Index()
         {
-            return "Hello World!";
+            return View();
         }
     }
 }
