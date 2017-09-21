@@ -1,7 +1,10 @@
 image: Visual Studio 2017
 
+install:
+- cmd: appveyor downloadfile https://dist.nuget.org/win-x86-commandline/v4.3.0/nuget.exe
+
 before_build:
-- nuget restore
+- cmd: nuget restore
 
 build:
   project: Thrifty.sln
