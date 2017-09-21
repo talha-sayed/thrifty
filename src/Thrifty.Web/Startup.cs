@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Thrifty.Data;
 
 namespace Thrifty.Web
 {
@@ -9,6 +11,8 @@ namespace Thrifty.Web
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ThriftyDbContext>(options => options.UseSqlServer("connstr"));
+
             services.AddMvc();
         }
 
