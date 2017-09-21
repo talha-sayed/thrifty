@@ -10,6 +10,7 @@ build:
   project: Thrifty.sln
   verbosity: normal
 
-test:
-  assemblies:
-  - '**\*Tests.dll' 
+test_script:
+  - cmd: dotnet run -c Release -p src\tests\Thrifty.UnitTests\Thrifty.UnitTests.csproj
+
+test: off
