@@ -9,3 +9,7 @@ before_build:
 build:
   project: Thrifty.sln
   verbosity: normal
+
+test:
+  assemblies:
+  - '**\*.tests.dll' 

@@ -5,21 +5,22 @@ VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.Web", "src\Thrifty.Web\Thrifty.Web.csproj", "{A13D8811-B75F-427E-8763-825A12A154D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thrifty.Abstractions", "src\Thrifty.Abstractions\Thrifty.Abstractions.csproj", "{40CBA2ED-DFC0-4815-9607-3A68D26EDB2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.Abstractions", "src\Thrifty.Abstractions\Thrifty.Abstractions.csproj", "{40CBA2ED-DFC0-4815-9607-3A68D26EDB2A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "src\tests", "{52638456-E660-4347-B6DF-E28B291BFEF7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{52638456-E660-4347-B6DF-E28B291BFEF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thrifty.UnitTests", "src\tests\Thrifty.UnitTests\Thrifty.UnitTests.csproj", "{169FB961-9DFC-49D9-B664-D8FF52F0B585}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.UnitTests", "src\tests\Thrifty.UnitTests\Thrifty.UnitTests.csproj", "{169FB961-9DFC-49D9-B664-D8FF52F0B585}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thrifty.Services", "src\Thrifty.Services\Thrifty.Services.csproj", "{993EC2BD-F08B-491B-ABE0-AC1D16E692AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.Services", "src\Thrifty.Services\Thrifty.Services.csproj", "{993EC2BD-F08B-491B-ABE0-AC1D16E692AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thrifty.Models", "src\Thrifty.Models\Thrifty.Models.csproj", "{E1A01656-782D-48A8-972A-6396FADCB974}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.Models", "src\Thrifty.Models\Thrifty.Models.csproj", "{E1A01656-782D-48A8-972A-6396FADCB974}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thrifty.Data", "src\Thrifty.Data\Thrifty.Data.csproj", "{79C6B587-A843-47B8-8427-546AAEE1582F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.Data", "src\Thrifty.Data\Thrifty.Data.csproj", "{79C6B587-A843-47B8-8427-546AAEE1582F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{817A187D-C214-429C-BFDB-EFFC374C7C0E}"
 	ProjectSection(SolutionItems) = preProject
 		appveyor.yml = appveyor.yml
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
