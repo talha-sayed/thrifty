@@ -6,8 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="wwwroot\lib\sample.html" />
-    <Content Include="wwwroot\sample.html" />
+    <None Remove="Properties\PublishProfiles\Production.pubxml" />
   </ItemGroup>
   
   <ItemGroup>
