@@ -5,7 +5,7 @@ using Thrifty.Services;
 namespace Thrifty.UnitTests
 {
     [TestClass]
-    public class TransactionServiceTest
+    public class TransactionServiceTests
     {
         [TestMethod]
         public void CheckValidTransaction()
@@ -26,7 +26,7 @@ namespace Thrifty.UnitTests
             var result = transactionService.ValidateTransaction(transaction);
 
             //Assert
-            Assert.IsTrue(result, "Test valid transaction returned false for a valid transaction");
+            Assert.IsTrue(result, "Method ValidateTransaction returned false for a valid transaction");
         }
     }
 }
