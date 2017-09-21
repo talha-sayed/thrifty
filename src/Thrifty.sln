@@ -1,9 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.16
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thrifty.Web", "Thrifty.Web\Thrifty.Web.csproj", "{A13D8811-B75F-427E-8763-825A12A154D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.Web", "Thrifty.Web\Thrifty.Web.csproj", "{A13D8811-B75F-427E-8763-825A12A154D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thrifty.Abstractions", "Thrifty.Abstractions\Thrifty.Abstractions.csproj", "{40CBA2ED-DFC0-4815-9607-3A68D26EDB2A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{52638456-E660-4347-B6DF-E28B291BFEF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thrifty.UnitTests", "tests\Thrifty.UnitTests\Thrifty.UnitTests.csproj", "{169FB961-9DFC-49D9-B664-D8FF52F0B585}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thrifty.Services", "Thrifty.Services\Thrifty.Services.csproj", "{993EC2BD-F08B-491B-ABE0-AC1D16E692AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thrifty.Models", "Thrifty.Models\Thrifty.Models.csproj", "{E1A01656-782D-48A8-972A-6396FADCB974}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +25,30 @@ Global
 		{A13D8811-B75F-427E-8763-825A12A154D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A13D8811-B75F-427E-8763-825A12A154D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A13D8811-B75F-427E-8763-825A12A154D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40CBA2ED-DFC0-4815-9607-3A68D26EDB2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40CBA2ED-DFC0-4815-9607-3A68D26EDB2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40CBA2ED-DFC0-4815-9607-3A68D26EDB2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40CBA2ED-DFC0-4815-9607-3A68D26EDB2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{169FB961-9DFC-49D9-B664-D8FF52F0B585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{169FB961-9DFC-49D9-B664-D8FF52F0B585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{169FB961-9DFC-49D9-B664-D8FF52F0B585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{169FB961-9DFC-49D9-B664-D8FF52F0B585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{993EC2BD-F08B-491B-ABE0-AC1D16E692AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{993EC2BD-F08B-491B-ABE0-AC1D16E692AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{993EC2BD-F08B-491B-ABE0-AC1D16E692AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{993EC2BD-F08B-491B-ABE0-AC1D16E692AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1A01656-782D-48A8-972A-6396FADCB974}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A01656-782D-48A8-972A-6396FADCB974}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A01656-782D-48A8-972A-6396FADCB974}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A01656-782D-48A8-972A-6396FADCB974}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{169FB961-9DFC-49D9-B664-D8FF52F0B585} = {52638456-E660-4347-B6DF-E28B291BFEF7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49679F41-1EC0-4F50-BA00-5AD14205D722}
 	EndGlobalSection
 EndGlobal
