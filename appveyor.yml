@@ -1,0 +1,8 @@
+image: Visual Studio 2017 RC
+
+before_build:
+- nuget restore
+
+build:
+  project: Thrifty.sln
+  verbosity: normal
