@@ -1,5 +1,8 @@
+using System;
 using System.IO;
+using System.Linq;
 using System.Net.Http;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
@@ -13,15 +16,14 @@ namespace Thrifty.IntegrationTests
     {
         private readonly TestServer _server;
         private readonly HttpClient _client;
-
+        
         public ApplicationShould()
         {
             // Arrange
-            var path = PlatformServices.Default.Application.ApplicationBasePath;
-            var setDir = Path.GetFullPath(Path.Combine(path, @"..\..\..\..\..\Thrifty.Web\"));
+            var setDir = Utils.TryGetSolutionDirectoryInfo() + "\\src\\Thrifty.Web";
 
             _server = new TestServer(new WebHostBuilder()
-                .UseContentRoot(@"G:\Workspace\thrifty\src\Thrifty.Web")
+                .UseContentRoot(setDir)
                 .UseStartup<Startup>());
             _client = _server.CreateClient();
         }
@@ -32,6 +34,20 @@ namespace Thrifty.IntegrationTests
         {
             var response = await _client.GetAsync("/");
             response.EnsureSuccessStatusCode();
+        }
+    }
+
+    public class Utils
+    {
+        public static string TryGetSolutionDirectoryInfo(string currentPath = null)
+        {
+            var directory = new DirectoryInfo(
+                currentPath ?? Directory.GetCurrentDirectory());
+            while (directory != null && !directory.GetFiles("*.sln").Any())
+            {
+                directory = directory.Parent;
+            }
+            return directory?.FullName;
         }
     }
 }
