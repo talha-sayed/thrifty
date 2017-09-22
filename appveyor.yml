@@ -13,3 +13,4 @@ build:
 test_script:
  - cmd: >-
      dotnet test src\tests\Thrifty.UnitTests
+     dotnet test src\tests\Thrifty.IntegrationTests

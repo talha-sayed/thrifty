@@ -11,6 +11,12 @@ namespace Thrifty.Data
             
         }
 
+        public ThriftyDbContext(DbContextOptions options)
+            : base(options)
+        {
+
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
