@@ -11,6 +11,6 @@ build:
   verbosity: minimal
 
 test_script:
- - cmd: >-
-     dotnet test src\tests\Thrifty.UnitTests
-     dotnet test src\tests\Thrifty.IntegrationTests
+ - cmd: 
+     - dotnet test src\tests\Thrifty.UnitTests
+     - dotnet test src\tests\Thrifty.IntegrationTests
