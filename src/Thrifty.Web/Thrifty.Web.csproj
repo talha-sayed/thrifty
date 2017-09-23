@@ -10,7 +10,10 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\Thrifty.Repositories\Thrifty.Repositories.csproj" />
+    <ProjectReference Include="..\Thrifty.Abstractions\Thrifty.Abstractions.csproj" />
     <ProjectReference Include="..\Thrifty.Data\Thrifty.Data.csproj" />
+    <ProjectReference Include="..\Thrifty.Services\Thrifty.Services.csproj" />
   </ItemGroup>
 
 </Project>

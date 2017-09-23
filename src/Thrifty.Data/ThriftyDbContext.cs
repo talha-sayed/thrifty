@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Thrifty.Abstractions;
+using Thrifty.Data.Entities;
 
 namespace Thrifty.Data
 {
-    public class ThriftyDbContext : DbContext, IApplicationDbContext
+    public class ThriftyDbContext : DbContext
     {
         public ThriftyDbContext()
             :base()
@@ -17,9 +18,7 @@ namespace Thrifty.Data
 
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            base.OnConfiguring(optionsBuilder);
-        }
+        public DbSet<TransactionEntity> Transaction { get; set; }
+
     }
 }

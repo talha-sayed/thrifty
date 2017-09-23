@@ -20,7 +20,7 @@ namespace Thrifty.UnitTests
                 }
             };
 
-            var transactionService = new TransactionService();
+            var transactionService = new TransactionService(null);
 
             // Act
             var result = transactionService.ValidateTransaction(transaction);
@@ -42,7 +42,7 @@ namespace Thrifty.UnitTests
                 }
             };
 
-            var transactionService = new TransactionService();
+            var transactionService = new TransactionService(null);
 
             // Act
             var result = transactionService.ValidateTransaction(transaction);
