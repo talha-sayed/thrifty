@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Thrifty.Models;
 using Thrifty.Services;
+using FluentAssertions;
 
 namespace Thrifty.UnitTests
 {
@@ -26,7 +27,7 @@ namespace Thrifty.UnitTests
             var result = transactionService.ValidateTransaction(transaction);
 
             //Assert
-            Assert.IsTrue(result, "Method ValidateTransaction returned false for a valid transaction");
+            result.Should().BeTrue("because balanced debit and credit leg should be a valid transaction");
         }
 
         [TestMethod]
@@ -48,7 +49,7 @@ namespace Thrifty.UnitTests
             var result = transactionService.ValidateTransaction(transaction);
 
             //Assert
-            Assert.IsFalse(result, "Method ValidateTransaction returned true for a invalid transaction");
+            result.Should().BeFalse("because unbalanced debit and credit leg should not be a valid transaction");
         }
     }
 }

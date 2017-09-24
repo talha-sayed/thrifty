@@ -1,17 +1,19 @@
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Xunit;
 
-namespace Thrifty.IntegrationTests
+namespace Thrifty.IntegrationTests.Controllers
 {
-    public class ApplicationShould
+    public class HomeControllerTests
     {
         private readonly TestServer _server;
         private readonly HttpClient _client;
         
-        public ApplicationShould()
+        public HomeControllerTests()
         {
             var setDir = Utilities.TryGetSolutionDirectoryInfo() + "\\src\\Thrifty.Web";
 
@@ -27,7 +29,8 @@ namespace Thrifty.IntegrationTests
         public async Task ReturnSuccessCodeOnDefaultPage()
         {
             var response = await _client.GetAsync("/");
-            response.EnsureSuccessStatusCode();
+
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
     }
 
