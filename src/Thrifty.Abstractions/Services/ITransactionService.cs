@@ -7,6 +7,6 @@ namespace Thrifty.Abstractions
     {
         bool ValidateTransaction(Transaction transaction);
 
-        Task CreateSampleTransaction();
+        Task CreateSampleTransaction(Transaction transaction);
     }
 }

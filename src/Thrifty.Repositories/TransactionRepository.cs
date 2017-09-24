@@ -2,6 +2,7 @@
 using Thrifty.Abstractions;
 using Thrifty.Data;
 using Thrifty.Data.Entities;
+using Thrifty.Models;
 
 namespace Thrifty.Repositories
 {
@@ -14,11 +15,11 @@ namespace Thrifty.Repositories
             _context = context;
         }
 
-        public async Task Create()
+        public async Task Create(Transaction transaction)
         {
             _context.Transaction.Add(new TransactionEntity
             {
-                Description = "Basic expense"
+                Description = transaction.Description
             });
 
             await _context.SaveChangesAsync();

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Thrifty.Abstractions;
 using Thrifty.Models;
@@ -22,9 +23,14 @@ namespace Thrifty.Services
             return totalDebit == totalCredit;
         }
 
-        public async Task CreateSampleTransaction()
+        public async Task CreateSampleTransaction(Transaction transaction)
         {
-            await _transactionRepository.Create();
+            if (!ValidateTransaction(transaction))
+            {
+                throw new Exception("Invalid transaction");
+            }
+
+            await _transactionRepository.Create(transaction);
         }
     }
 }
