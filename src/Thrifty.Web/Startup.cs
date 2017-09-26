@@ -33,7 +33,7 @@ namespace Thrifty.Web
             services.AddMvc();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, ThriftyDbContext context)
         {
             loggerFactory.AddConsole();
             loggerFactory.AddDebug();
@@ -48,22 +48,16 @@ namespace Thrifty.Web
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                    name: "default", 
+                    name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
-
-            //todo implement migrations but dont apply automatically in production environment.
-            // Instead use the pending migrations list to make application not runnable.
-            // Implement actionfilter or something like that with a global variable for application state
-            //if (env.IsDevelopment())
-            //{
-            //    // Migrating DB to latest migration
-            //    using (var context = new ThriftyDbContext())
-            //    {
-            //        context.Database.Migrate();
-            //    }
-            //}
+            
+            // todo: refactor below db code to its own initialization class
+            if (env.IsDevelopment())
+            {
+                // Migrating DB to latest migration
+                context.Database.EnsureCreated();
+            }
         }
 
         protected virtual void ConfigureDatabase(IServiceCollection services)

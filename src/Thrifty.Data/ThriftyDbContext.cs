@@ -6,12 +6,6 @@ namespace Thrifty.Data
 {
     public class ThriftyDbContext : DbContext
     {
-        public ThriftyDbContext()
-            :base()
-        {
-            
-        }
-
         public ThriftyDbContext(DbContextOptions options)
             : base(options)
         {
