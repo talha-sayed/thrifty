@@ -16,10 +16,13 @@ namespace Thrifty.Web.Controllers
 
         public async Task<ActionResult> Index()
         {
-            await _transactionService.CreateSampleTransaction(new Transaction()
-            {
-                Description = "Sample transaction"
-            });
+            var transaction = new Transaction("Sample transaction");
+
+            transaction.Legs.Add(TransactionLeg.CreateCredit(10.5M));
+            transaction.Legs.Add(TransactionLeg.CreateDebit(4.5M));
+            transaction.Legs.Add(TransactionLeg.CreateDebit(6.0M));
+
+            await _transactionService.CreateTransaction(transaction);
 
             return View();
         }

@@ -17,13 +17,23 @@ namespace Thrifty.Services
 
         public bool ValidateTransaction(Transaction transaction)
         {
+            if (transaction.Legs.Count(x => x.IsDebit) == 0 || transaction.Legs.Count(x => !x.IsDebit) == 0)
+            {
+                return false;
+            }
+
             var totalDebit = transaction.Legs.Where(tran => tran.IsDebit == true).Sum(x => x.Amount);
             var totalCredit = transaction.Legs.Where(tran => tran.IsDebit == false).Sum(x => x.Amount);
 
-            return totalDebit == totalCredit;
+            if (totalDebit != totalCredit)
+            {
+                return false;
+            }
+
+            return true;
         }
 
-        public async Task CreateSampleTransaction(Transaction transaction)
+        public async Task CreateTransaction(Transaction transaction)
         {
             if (!ValidateTransaction(transaction))
             {

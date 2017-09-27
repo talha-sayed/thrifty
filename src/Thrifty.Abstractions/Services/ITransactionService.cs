@@ -5,8 +5,6 @@ namespace Thrifty.Abstractions
 {
     public interface ITransactionService
     {
-        bool ValidateTransaction(Transaction transaction);
-
-        Task CreateSampleTransaction(Transaction transaction);
+        Task CreateTransaction(Transaction transaction);
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Thrifty.Models;
 using Thrifty.Services;
@@ -14,10 +15,10 @@ namespace Thrifty.UnitTests
             // Arrange
             var transaction = new Transaction
             {
-                Legs = new[]
+                Legs = new List<TransactionLeg>
                 {
-                    new TransactionLeg { IsDebit = true, Amount = 10.5M },
-                    new TransactionLeg { IsDebit = false, Amount = 10.5M }
+                    new TransactionLeg { IsDebit = true, Amount = 10.5M }
+                    , new TransactionLeg { IsDebit = false, Amount = 10.5M }
                 }
             };
 
@@ -36,10 +37,10 @@ namespace Thrifty.UnitTests
             // Arrange
             var transaction = new Transaction
             {
-                Legs = new[]
+                Legs = new List<TransactionLeg>
                 {
-                    new TransactionLeg { IsDebit = true, Amount = 10.505M },
-                    new TransactionLeg { IsDebit = false, Amount = 10.506M }
+                    new TransactionLeg { IsDebit = true, Amount = 10.505M }
+                    , new TransactionLeg { IsDebit = false, Amount = 10.506M }
                 }
             };
 

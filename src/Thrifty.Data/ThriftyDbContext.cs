@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Thrifty.Abstractions;
 using Thrifty.Data.Entities;
 
 namespace Thrifty.Data
@@ -14,5 +13,13 @@ namespace Thrifty.Data
 
         public DbSet<TransactionEntity> Transaction { get; set; }
 
+        public DbSet<TransactionLegEntity> TransactionLeg { get; set; }
+
+        public DbSet<AccountEntity> Account { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

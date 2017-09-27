@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Thrifty.Abstractions;
 using Thrifty.Data;
 using Thrifty.Data.Entities;
@@ -19,7 +20,11 @@ namespace Thrifty.Repositories
         {
             _context.Transaction.Add(new TransactionEntity
             {
-                Description = transaction.Description
+                Description = transaction.Description,
+                Legs = transaction.Legs.Select(x =>
+                {
+                    return new TransactionLegEntity { Amount = x.Amount };
+                }).ToList()
             });
 
             await _context.SaveChangesAsync();
