@@ -8,6 +8,7 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.4.1" />
   </ItemGroup>
   
@@ -16,6 +17,10 @@
     <ProjectReference Include="..\Thrifty.Abstractions\Thrifty.Abstractions.csproj" />
     <ProjectReference Include="..\Thrifty.Data\Thrifty.Data.csproj" />
     <ProjectReference Include="..\Thrifty.Services\Thrifty.Services.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
 </Project>

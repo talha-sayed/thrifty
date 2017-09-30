@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Thrifty.Abstractions;
+using Thrifty.Abstractions.Repositories;
+using Thrifty.Abstractions.Services;
 using Thrifty.Data;
 using Thrifty.Repositories;
 using Thrifty.Services;
@@ -55,7 +57,7 @@ namespace Thrifty.Web
             // todo: refactor below db code to its own initialization class
             if (env.IsDevelopment())
             {
-                // Migrating DB to latest migration
+                // Create database if not exists
                 context.Database.EnsureCreated();
             }
         }
@@ -69,6 +71,8 @@ namespace Thrifty.Web
         {
             services.AddScoped<ITransactionService, TransactionService>();
             services.AddScoped<ITransactionRepository, TransactionRepository>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IAccountRepository, AccountRepository>();
         }
     }
 }
