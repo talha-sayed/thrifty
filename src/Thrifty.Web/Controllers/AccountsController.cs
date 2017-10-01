@@ -13,7 +13,7 @@ namespace Thrifty.Web.Controllers
             _accountService = accountService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             return View();
         }
