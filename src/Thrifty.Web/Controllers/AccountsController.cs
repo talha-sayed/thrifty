@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Thrifty.Abstractions.Services;
 
@@ -22,9 +19,9 @@ namespace Thrifty.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(string accountName, string accountKey)
+        public async Task<IActionResult> Create(string accountName, string accountKey)
         {
-            _accountService.Create(accountName, accountKey);
+            await _accountService.Create(accountName, accountKey);
 
             return View("Index");
         }
