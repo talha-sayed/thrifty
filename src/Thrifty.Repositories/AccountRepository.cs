@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Thrifty.Abstractions.Repositories;
 using Thrifty.Data;
 using Thrifty.Data.Entities;
+using Thrifty.Models;
 
 namespace Thrifty.Repositories
 {
@@ -29,6 +33,18 @@ namespace Thrifty.Repositories
             await _context.SaveChangesAsync();
 
             return account.Id;
+        }
+
+        public async Task<List<Account>> GetAllAccounts()
+        {
+            return await _context.Account.Select(x=> new Account()
+            {
+                Id = x.Id,
+                Key = x.Key,
+                Name = x.Name,
+                CreatedOn = x.CreatedOn,
+                UpdatedOn = x.UpdatedOn
+            }).ToListAsync();
         }
     }
 }

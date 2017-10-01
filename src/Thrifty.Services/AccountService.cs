@@ -1,6 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Thrifty.Abstractions.Repositories;
 using Thrifty.Abstractions.Services;
+using Thrifty.Models;
 
 namespace Thrifty.Services
 {
@@ -16,6 +18,11 @@ namespace Thrifty.Services
         public async Task<int> Create(string name, string key)
         {
             return await _accountRepository.Create(name, key);
+        }
+
+        public async Task<List<Account>> GetAllAccounts()
+        {
+            return await _accountRepository.GetAllAccounts();
         }
     }
 }
