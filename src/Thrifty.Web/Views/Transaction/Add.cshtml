@@ -1,0 +1,33 @@
+﻿@model Thrifty.Web.Models.Transaction.AddTransactionVM
+
+@{
+    ViewBag.Title = "Transaction";
+}
+
+<h2>Transaction</h2>
+
+
+<form role="form" asp-controller="Transaction" asp-action="">
+    <div class="form-group">
+        <label class="control-label" for="debitAccount">Debit Account</label>
+        <input type="text" class="form-control" id="debitAccount" name="debitAccount">
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="debitAmount">Amount</label>
+        <input type="text" class="form-control" id="debitAmount" name="debitAccount">
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="creditAccount">Credit Account</label>
+        <input type="text" class="form-control" id="creditAccount" name="creditAccount">
+    </div>
+    <div class="form-group">
+        <label class="control-label" for="creditAmount">Credit Amount</label>
+        <input type="text" class="form-control" id="creditAmount" name="creditAmount">
+    </div>
+    <button type="submit" class="btn btn-default">Add</button>
+    
+    <select asp-for="DebitAccount" asp-items="@(new SelectList(Model.Accounts, "Id", "Name"))"></select>
+
+    <select asp-for="CreditAccount" asp-items="@(new SelectList(Model.Accounts, "Id", "Name"))" ></select>
+
+</form>
