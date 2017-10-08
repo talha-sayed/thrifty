@@ -5,6 +5,7 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <PackageReference Include="dbup-sqlserver" Version="4.0.0-beta0002" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
@@ -14,6 +15,7 @@
   
   <ItemGroup>
     <ProjectReference Include="..\Thrifty.Application\Thrifty.Application.csproj" />
+    <ProjectReference Include="..\Thrifty.Database\Thrifty.Database.csproj" />
     <ProjectReference Include="..\Thrifty.Repositories\Thrifty.Repositories.csproj" />
     <ProjectReference Include="..\Thrifty.Abstractions\Thrifty.Abstractions.csproj" />
     <ProjectReference Include="..\Thrifty.Data\Thrifty.Data.csproj" />

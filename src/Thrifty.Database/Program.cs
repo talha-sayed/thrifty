@@ -3,9 +3,9 @@ using System.Linq;
 using System.Reflection;
 using DbUp;
 
-namespace Thrifty.DbMigrator
+namespace Thrifty.Database
 {
-    class Program
+    public class Program
     {
         static int Main(string[] args)
         {
