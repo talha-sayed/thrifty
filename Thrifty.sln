@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.IntegrationTests", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.Repositories", "src\Thrifty.Repositories\Thrifty.Repositories.csproj", "{59209ABB-365F-4DF4-9D8C-BCC7F54FA646}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.DbMigrator", "src\Thrifty.DbMigrator\Thrifty.DbMigrator.csproj", "{469F9C31-A18F-4073-9571-720C1CC4BC9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.Database", "src\Thrifty.Database\Thrifty.Database.csproj", "{469F9C31-A18F-4073-9571-720C1CC4BC9B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.Application", "src\Thrifty.Application\Thrifty.Application.csproj", "{55CC6BBF-C9DB-4AD5-A361-14D705A7F98B}"
 EndProject
