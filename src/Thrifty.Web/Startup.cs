@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using Thrifty.Abstractions;
 using Thrifty.Abstractions.Repositories;
 using Thrifty.Abstractions.Services;
+using Thrifty.Application;
 using Thrifty.Data;
 using Thrifty.Repositories;
 using Thrifty.Services;
@@ -47,12 +48,7 @@ namespace Thrifty.Web
 
             app.UseStaticFiles();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseMvc(RegisterRoutes.ConfigureRoutes);
             
             // todo: refactor below db code to its own initialization class
             if (env.IsDevelopment())

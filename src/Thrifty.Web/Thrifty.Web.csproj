@@ -13,6 +13,7 @@
   </ItemGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\Thrifty.Application\Thrifty.Application.csproj" />
     <ProjectReference Include="..\Thrifty.Repositories\Thrifty.Repositories.csproj" />
     <ProjectReference Include="..\Thrifty.Abstractions\Thrifty.Abstractions.csproj" />
     <ProjectReference Include="..\Thrifty.Data\Thrifty.Data.csproj" />
