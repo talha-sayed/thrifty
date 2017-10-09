@@ -5,7 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="dbup-sqlserver" Version="4.0.0-beta0002" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Thrifty.Database\Thrifty.Database.csproj" />
+    <ProjectReference Include="..\Thrifty.Data\Thrifty.Data.csproj" />
   </ItemGroup>
 
 </Project>

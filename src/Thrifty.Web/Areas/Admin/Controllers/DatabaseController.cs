@@ -1,11 +1,5 @@
-﻿using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using DbUp;
-using DbUp.Engine;
-using DbUp.Engine.Output;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Thrifty.Application.Database;
 using Thrifty.Data;
 using Thrifty.Web.Areas.Admin.Models.Database;
 
@@ -15,29 +9,19 @@ namespace Thrifty.Web.Areas.Admin.Controllers
     [Route("admin/[controller]")]
     public class DatabaseController : Controller
     {
-        private ThriftyDbContext _context;
-
-        private UpgradeEngine _upgrader;
+        private DatabaseMigrator _migrator;
 
         public DatabaseController(ThriftyDbContext context)
         {
-            _context = context;
-
-            var connectionString = _context.Database.GetDbConnection().ConnectionString;
-
-            _upgrader = DeployChanges.To
-                .SqlDatabase(connectionString)
-                .WithScriptsEmbeddedInAssembly(typeof(Thrifty.Database.Program).Assembly)
-                .LogToConsole()
-                .Build();
+            _migrator = new DatabaseMigrator(context);
         }
 
         public ActionResult Index()
         {
             var vm = new DatabaseIndexVM();
 
-            vm.ScriptsExecuted = _upgrader.GetExecutedScripts();
-            vm.ScriptsToExecute = _upgrader.GetScriptsToExecute().Select(x=>x.Name).ToList();
+            vm.ScriptsExecuted = _migrator.ExecutedScripts;
+            vm.ScriptsToExecute = _migrator.ScriptsToExecute;
 
             return View(vm);
         }
@@ -45,12 +29,12 @@ namespace Thrifty.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Migrate()
         {
-            _upgrader.PerformUpgrade();
+            _migrator.Migrate();
 
             var vm = new DatabaseIndexVM();
 
-            vm.ScriptsExecuted = _upgrader.GetExecutedScripts();
-            vm.ScriptsToExecute = _upgrader.GetScriptsToExecute().Select(x => x.Name).ToList();
+            vm.ScriptsExecuted = _migrator.ExecutedScripts;
+            vm.ScriptsToExecute = _migrator.ScriptsToExecute;
 
             return View("Index", vm);
         }
