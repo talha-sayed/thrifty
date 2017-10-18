@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.Web", "src\Thrifty.Web\Thrifty.Web.csproj", "{A13D8811-B75F-427E-8763-825A12A154D6}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.Abstractions", "src\Thrifty.Abstractions\Thrifty.Abstractions.csproj", "{40CBA2ED-DFC0-4815-9607-3A68D26EDB2A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{52638456-E660-4347-B6DF-E28B291BFEF7}"
@@ -31,16 +29,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.Database", "src\Thr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.Application", "src\Thrifty.Application\Thrifty.Application.csproj", "{55CC6BBF-C9DB-4AD5-A361-14D705A7F98B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thrifty.Web", "src\Thrifty.Web\Thrifty.Web.csproj", "{0FD504CC-5242-4A6F-A22E-BF6E0D9FDC01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A13D8811-B75F-427E-8763-825A12A154D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A13D8811-B75F-427E-8763-825A12A154D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A13D8811-B75F-427E-8763-825A12A154D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A13D8811-B75F-427E-8763-825A12A154D6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{40CBA2ED-DFC0-4815-9607-3A68D26EDB2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{40CBA2ED-DFC0-4815-9607-3A68D26EDB2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40CBA2ED-DFC0-4815-9607-3A68D26EDB2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -77,6 +73,10 @@ Global
 		{55CC6BBF-C9DB-4AD5-A361-14D705A7F98B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55CC6BBF-C9DB-4AD5-A361-14D705A7F98B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55CC6BBF-C9DB-4AD5-A361-14D705A7F98B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FD504CC-5242-4A6F-A22E-BF6E0D9FDC01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FD504CC-5242-4A6F-A22E-BF6E0D9FDC01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FD504CC-5242-4A6F-A22E-BF6E0D9FDC01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FD504CC-5242-4A6F-A22E-BF6E0D9FDC01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
