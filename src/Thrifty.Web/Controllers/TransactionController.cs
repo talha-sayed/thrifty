@@ -1,38 +1,73 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Thrifty.Abstractions;
-using Thrifty.Abstractions.Services;
-using Thrifty.Web.Models.Transaction;
+using Thrifty.Models;
 
 namespace Thrifty.Web.Controllers
 {
+    [Produces("application/json")]
+    [Route("api/Transaction")]
     public class TransactionController : Controller
     {
-        private readonly ITransactionService _transactionService;
-        private readonly IAccountService _accountService;
+        private ITransactionService _transactionService;
 
-
-        public TransactionController(ITransactionService transactionService, IAccountService accountService)
+        public TransactionController(ITransactionService transactionService)
         {
             _transactionService = transactionService;
-            _accountService = accountService;
         }
 
-        public async Task<IActionResult> Add()
+        // GET: api/Transaction
+        [HttpGet]
+        public IEnumerable<string> Get()
         {
-            var vm = new AddTransactionVM();
-
-            vm.Accounts = await _accountService.GetAllAccounts();
-
-            return View(vm);
+            return new string[] { "value1", "value2" };
         }
 
+        // GET: api/Transaction/5
+        [HttpGet("{id}", Name = "Get")]
+        public string Get(int id)
+        {
+            return "value";
+        }
+        
+        // POST: api/Transaction
         [HttpPost]
-        public async Task<IActionResult> Add(AddTransactionVM vm)
+        public async Task Post([FromBody]string value)
         {
-            //await _transactionService.CreateTransaction(new Transaction());
-
-            return View();
+            await _transactionService.CreateTransaction(new Transaction
+            {
+                Legs = new List<TransactionLeg>()
+                {
+                    TransactionLeg.CreateCredit(10),
+                    TransactionLeg.CreateDebit(10)
+                },
+                Description = $"Mobile bill payment {DateTime.Now.ToShortTimeString()}"
+            });
         }
+        
+        // PUT: api/Transaction/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody]string value)
+        {
+        }
+        
+        // DELETE: api/ApiWithActions/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+        }
+
+
+
+    }
+
+    internal class TransactionCreateDto
+    {
+        private int id;
+
     }
 }

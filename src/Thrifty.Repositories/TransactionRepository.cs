@@ -21,10 +21,7 @@ namespace Thrifty.Repositories
             _context.Transaction.Add(new TransactionEntity
             {
                 Description = transaction.Description,
-                Legs = transaction.Legs.Select(x =>
-                {
-                    return new TransactionLegEntity { Amount = x.Amount };
-                }).ToList()
+                Legs = transaction.Legs.Select(x => new TransactionLegEntity { Amount = x.Amount }).ToList()
             });
 
             await _context.SaveChangesAsync();
