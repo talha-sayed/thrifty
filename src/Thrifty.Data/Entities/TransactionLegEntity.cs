@@ -15,5 +15,7 @@ namespace Thrifty.Data.Entities
         public TransactionEntity Transaction { get; set; }
 
         public DateTime Timestamp { get; set; }
+
+        public string AccountKey { get; set; }
     }
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Thrifty.Abstractions;
+using Thrifty.Abstractions.Services;
 using Thrifty.Models;
 
 namespace Thrifty.Web.Controllers
@@ -14,10 +15,12 @@ namespace Thrifty.Web.Controllers
     public class TransactionController : Controller
     {
         private ITransactionService _transactionService;
+        private IAccountService _accountService;
 
-        public TransactionController(ITransactionService transactionService)
+        public TransactionController(ITransactionService transactionService, IAccountService accountService)
         {
             _transactionService = transactionService;
+            _accountService = accountService;
         }
 
         // GET: api/Transaction
@@ -36,17 +39,17 @@ namespace Thrifty.Web.Controllers
         
         // POST: api/Transaction
         [HttpPost]
-        public async Task Post([FromBody]string value)
+        public async Task Post([FromBody] TransactionInput input)
         {
-            await _transactionService.CreateTransaction(new Transaction
-            {
-                Legs = new List<TransactionLeg>()
-                {
-                    TransactionLeg.CreateCredit(10),
-                    TransactionLeg.CreateDebit(10)
-                },
-                Description = $"Mobile bill payment {DateTime.Now.ToShortTimeString()}"
-            });
+            await _transactionService.CreateTransaction(input.creditAccount, input.debitAccount, input.amount, input.description);
+        }
+
+        public class TransactionInput
+        {
+            public string creditAccount;
+            public string debitAccount;
+            public decimal amount;
+            public string description;
         }
         
         // PUT: api/Transaction/5

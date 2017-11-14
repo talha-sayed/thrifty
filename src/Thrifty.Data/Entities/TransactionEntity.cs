@@ -6,6 +6,11 @@ namespace Thrifty.Data.Entities
 {
     public class TransactionEntity
     {
+        public TransactionEntity()
+        {
+            Legs = new List<TransactionLegEntity>();
+        }
+
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 

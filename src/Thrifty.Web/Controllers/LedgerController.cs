@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Thrifty.Abstractions.Services;
+using Thrifty.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -21,9 +22,15 @@ namespace Thrifty.Web.Controllers
 
         // GET: api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<List<Account>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return await _accountService.GetAllAccounts();
+        }
+
+        public class Ledger
+        {
+            public string name;
+            public string key;
         }
 
         // GET api/values/5
@@ -47,9 +54,10 @@ namespace Thrifty.Web.Controllers
         }
 
         // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{key}")]
+        public async Task Delete(string key)
         {
+            await _accountService.Delete(key);
         }
     }
 

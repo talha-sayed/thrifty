@@ -42,5 +42,10 @@ namespace Thrifty.Services
 
             await _transactionRepository.Create(transaction);
         }
+
+        public Task CreateTransaction(string creditAccount, string debitAccount, decimal amount, string description)
+        {
+            return _transactionRepository.Create(creditAccount, debitAccount, amount, description);
+        }
     }
 }

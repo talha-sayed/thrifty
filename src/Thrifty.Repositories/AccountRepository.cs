@@ -46,5 +46,17 @@ namespace Thrifty.Repositories
                 UpdatedOn = x.UpdatedOn
             }).ToListAsync();
         }
+
+        public async Task Delete(string key)
+        {
+            var accounts = await _context.Account.Where(x => x.Key == key).ToListAsync();
+            _context.RemoveRange(accounts);
+            await _context.SaveChangesAsync();
+        }
+
+        public Task Get(string key)
+        {
+            return _context.Account.SingleAsync(x => x.Key == key);
+        }
     }
 }

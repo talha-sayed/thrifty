@@ -24,5 +24,15 @@ namespace Thrifty.Services
         {
             return await _accountRepository.GetAllAccounts();
         }
+
+        public Task Delete(string key)
+        {
+            return _accountRepository.Delete(key);
+        }
+
+        public Task Get(string key)
+        {
+            return _accountRepository.Get(key);
+        }
     }
 }

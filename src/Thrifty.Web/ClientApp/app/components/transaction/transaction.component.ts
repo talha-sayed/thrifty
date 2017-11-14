@@ -8,17 +8,41 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 export class TransactionComponent {
     public currentCount = 0;
 
+    public ledgers = [];
+
+    public creditAccount: string;
+    public debitAccount: string;
+    public amount: number;
+    public description: string;
+
     constructor(private http: Http, @Inject('BASE_URL') private baseUrl: string) {
-        
+        this.loadLedgers();
+    }
+
+    private loadLedgers() {
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        this.http.get(this.baseUrl + 'api/ledger', options).subscribe(result => {
+            this.ledgers = result.json();
+        }, error => console.error(error));
     }
 
     public incrementCounter() {
         this.currentCount++;
     }
 
+
+
     public createTransaction() {
 
-        let body = JSON.stringify({ 'value': 'bar' });
+        let body = JSON.stringify({
+            'creditAccount': this.creditAccount,
+            'debitAccount': this.debitAccount,
+            'amount': this.amount,
+            'description': this.description
+        });
+
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 

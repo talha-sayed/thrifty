@@ -9,5 +9,7 @@ namespace Thrifty.Abstractions.Services
         Task<int> Create(string name, string key);
 
         Task<List<Account>> GetAllAccounts();
+        Task Delete(string key);
+        Task Get(string key);
     }
 }

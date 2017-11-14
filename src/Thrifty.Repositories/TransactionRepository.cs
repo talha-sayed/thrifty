@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Thrifty.Abstractions;
 using Thrifty.Data;
@@ -16,7 +17,7 @@ namespace Thrifty.Repositories
             _context = context;
         }
 
-        public async Task Create(Transaction transaction)
+        public Task Create(Transaction transaction)
         {
             _context.Transaction.Add(new TransactionEntity
             {
@@ -24,7 +25,32 @@ namespace Thrifty.Repositories
                 Legs = transaction.Legs.Select(x => new TransactionLegEntity { Amount = x.Amount }).ToList()
             });
 
-            await _context.SaveChangesAsync();
+            return _context.SaveChangesAsync();
+        }
+
+        public Task Create(string creditAccount, string debitAccount, decimal amount, string description)
+        {
+            _context.Transaction.Add(new TransactionEntity
+            {
+                Description = description,
+                Legs =
+                {
+                    new TransactionLegEntity {
+                        Amount = amount,
+                        AccountKey = creditAccount,
+                        Timestamp = DateTime.Now
+                        
+                    },
+                    new TransactionLegEntity
+                    {
+                        Amount = amount,
+                        AccountKey = debitAccount,
+                        Timestamp = DateTime.Now
+                    }
+                }
+            });
+
+            return  _context.SaveChangesAsync();
         }
     }
 }

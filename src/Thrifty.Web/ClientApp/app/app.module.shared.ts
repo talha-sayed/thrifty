@@ -28,6 +28,7 @@ import { LedgerComponent } from './components/core/ledger/ledger.component';
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'transaction', component: TransactionComponent },
+            { path: 'core/ledger', component: LedgerComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: '**', redirectTo: 'home' }
         ])
