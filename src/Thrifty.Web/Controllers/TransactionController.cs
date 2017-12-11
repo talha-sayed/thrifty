@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Thrifty.Abstractions;
 using Thrifty.Abstractions.Services;
-using Thrifty.Models;
 
 namespace Thrifty.Web.Controllers
 {
@@ -25,9 +22,23 @@ namespace Thrifty.Web.Controllers
 
         // GET: api/Transaction
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IEnumerable<TransactionDto>> Get()
         {
-            return new string[] { "value1", "value2" };
+            return (await _transactionService.Get()).Select(x=> new TransactionDto
+            {
+                description = x.Description,
+                amount = 1500,
+                creditAccount = "credit test",
+                debitAccount = "debit test"
+            });
+        }
+
+        public class TransactionDto
+        {
+            public decimal amount;
+            public string description;
+            public string debitAccount;
+            public string creditAccount;
         }
 
         // GET: api/Transaction/5

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Thrifty.Abstractions;
@@ -46,6 +47,11 @@ namespace Thrifty.Services
         public Task CreateTransaction(string creditAccount, string debitAccount, decimal amount, string description)
         {
             return _transactionRepository.Create(creditAccount, debitAccount, amount, description);
+        }
+
+        public Task<List<Transaction>> Get()
+        {
+            return _transactionRepository.Get();
         }
     }
 }

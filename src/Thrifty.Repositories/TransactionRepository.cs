@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Thrifty.Abstractions;
 using Thrifty.Data;
 using Thrifty.Data.Entities;
@@ -51,6 +53,14 @@ namespace Thrifty.Repositories
             });
 
             return  _context.SaveChangesAsync();
+        }
+
+        public Task<List<Transaction>> Get()
+        {
+            return _context.Transaction.Include(x=> x.Legs).Select(x=> new Transaction
+            {
+                Description = x.Description
+            }).ToListAsync();
         }
     }
 }

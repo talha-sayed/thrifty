@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Thrifty.Models;
 
 namespace Thrifty.Abstractions
@@ -7,5 +8,6 @@ namespace Thrifty.Abstractions
     {
         Task Create(Transaction transaction);
         Task Create(string creditAccount, string debitAccount, decimal amount, string description);
+        Task<List<Transaction>> Get();
     }
 }
