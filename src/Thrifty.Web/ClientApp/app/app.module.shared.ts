@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { TransactionComponent } from './components/transaction/transaction.component';
 import { LedgerComponent } from './components/core/ledger/ledger.component';
+import { BalanceSheetComponent } from './components/core/balancesheet/balancesheet.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { LedgerComponent } from './components/core/ledger/ledger.component';
         TransactionComponent,
         LedgerComponent,
         FetchDataComponent,
-        HomeComponent
+        HomeComponent,
+        BalanceSheetComponent
     ],
     imports: [
         CommonModule,
@@ -30,6 +32,7 @@ import { LedgerComponent } from './components/core/ledger/ledger.component';
             { path: 'transaction', component: TransactionComponent },
             { path: 'core/ledger', component: LedgerComponent },
             { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'core/balance-sheet', component: BalanceSheetComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
