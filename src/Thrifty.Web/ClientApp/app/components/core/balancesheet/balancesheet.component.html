@@ -1,37 +1,42 @@
 <h1>Balance Sheet</h1>
 
-
-    <!--<div class="row">
-        <div class="form-group col-sm-6">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="form-group col-sm-6">
-                            <label class="control-label">Name</label>
-                            <input class="form-control" [(ngModel)]="name" />
-                        </div>
-                        <div class="form-group col-sm-2">
-                            <label class="control-label">Key</label>
-                            <input class="form-control" [(ngModel)]="key" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-sm-12">
-                            <button class="btn btn-primary" (click)="createLedger()">Create</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="row">
+    <div class="col-md-8">
+        <table class="table table-bordered">
+            <tr style="text-align: center; font-weight: bold">
+                <td colspan="2">Liabilities</td>
+                <td colspan="2">Assets</td>
+            </tr>
+            <tr>
+                <td>Self</td>
+                <td>500.000</td>
+                <td>Cash</td>
+                <td>125.450</td>
+            </tr>
+            <tr>
+                <td>Family</td>
+                <td>150.000</td>
+                <td>Bank</td>
+                <td>700.523</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Wallet</td>
+                <td>23.500</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Savings</td>
+                <td>200</td>
+            </tr>
+            <tr style="font-weight: bold; border-top: 4px black solid">
+                <td></td>
+                <td>1250.000</td>
+                <td></td>
+                <td>1250.000</td>
+            </tr>
+        </table>
     </div>
-    <div class="row">
-        <div class="col-md-6">
-            <ul class="list-group" >
-                <li class="list-group-item" *ngFor="let ledger of ledgers">
-                    {{ledger.name}}, {{ledger.key}}
-                    <button class="btn btn-danger" (click)="deleteLedger(ledger.key)">Delete</button>
-                </li>
-
-            </ul>
-        </div>
-    </div>-->
+</div>
