@@ -37,10 +37,10 @@ namespace Thrifty.Web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
-                {
-                    HotModuleReplacement = true
-                });
+                //app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
+                //{
+                //    HotModuleReplacement = true
+                //});
             }
             else
             {
@@ -63,7 +63,7 @@ namespace Thrifty.Web
 
         protected virtual void ConfigureDatabase(IServiceCollection services)
         {
-            services.AddDbContext<ThriftyDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("thriftydb")));
+            services.AddDbContext<ThriftyDbContext>(options => options.UseSqlServer("Server=localhost;Database=thriftydb;Trusted_Connection=True;MultipleActiveResultSets=true"));
         }
 
         private void ConfigureApplicationServices(IServiceCollection services)
