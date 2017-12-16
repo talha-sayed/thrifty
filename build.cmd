@@ -1,0 +1,1 @@
+dotnet publish src\Thrifty.Web\Thrifty.Web.csproj -o ..\..\publish -v m
