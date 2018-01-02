@@ -8,7 +8,7 @@ init:
   - cmd: git config --global core.autocrlf true
 install:
   # Install repo specific stuff here
-  - ps: Install-Product node "6"
+  - ps: Install-Product node "8"
 before_build:
   # Display .NET Core version
   - cmd: dotnet --version
@@ -18,6 +18,8 @@ build_script:
   - cmd: build.cmd
 after_build:
   # For once the build has completed
+test_script:
+ - cmd: dotnet test src\tests\Thrifty.UnitTests & dotnet test src\tests\Thrifty.IntegrationTests 
 clone_depth: 1
 on_finish :
   # any cleanup in here
